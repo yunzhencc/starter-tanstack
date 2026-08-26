@@ -18,5 +18,6 @@ export default antfu({
     'tsconfig.json',
     '**/routeTree.gen.ts',
     'src/components/ui/',
+    'src/lib/db/schema/',
   ],
 });

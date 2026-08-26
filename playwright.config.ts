@@ -19,7 +19,7 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'pnpm run build && pnpm run start:e2e',
+    command: 'pnpm exec vite dev --port 3100',
     env: {
       NODE_ENV: 'production',
       PORT: String(PORT),
