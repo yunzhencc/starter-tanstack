@@ -18,6 +18,12 @@ export default antfu(
     },
   },
   {
+    files: ['src/components/ui/**/*.tsx'],
+    rules: {
+      'react-refresh/only-export-components': 'off',
+    },
+  },
+  {
     files: ['src/components/ThemeToggle.tsx'],
     rules: {
       'react/set-state-in-effect': 'off',

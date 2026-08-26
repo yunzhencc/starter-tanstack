@@ -1,0 +1,6 @@
+allowBuilds:
+  simple-git-hooks: true
+
+onlyBuiltDependencies:
+  - esbuild
+  - lightningcss
