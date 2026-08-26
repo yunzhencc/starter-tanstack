@@ -1,8 +1,8 @@
 import type { FormEvent } from 'react';
 import { Link, useNavigate } from '@tanstack/react-router';
 import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { authClient } from '@/lib/auth/auth-client';
+import { Button } from '#/components/ui/button';
+import { authClient } from '#/lib/auth/auth-client';
 
 export function CredentialsForm({ mode }: { mode: 'login' | 'signup' }) {
   const navigate = useNavigate();

@@ -2,7 +2,7 @@ import type { MouseEvent } from 'react';
 import { Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { useSyncExternalStore } from 'react';
-import { Button } from '@/components/ui/button';
+import { Button } from '#/components/ui/button';
 
 interface AppearanceTransition {
   ready: Promise<void>;
