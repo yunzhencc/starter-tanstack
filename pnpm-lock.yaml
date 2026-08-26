@@ -159,6 +159,9 @@ catalogs:
       specifier: 8.2.2
       version: 8.2.2
 
+patchedDependencies:
+  '@tanstack/router-ssr-query-core@1.169.1': c0e9047c00838360ca651b91c0bcbe28edc3db1d27823b55d977d84ca6fa4226
+
 importers:
 
   .:
@@ -6493,7 +6496,7 @@ snapshots:
       '@tanstack/query-core': 5.102.4
       '@tanstack/react-query': 5.102.4(react@19.2.8)
       '@tanstack/react-router': 1.170.32(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@tanstack/router-ssr-query-core': 1.169.1(@tanstack/query-core@5.102.4)(@tanstack/router-core@1.171.27)
+      '@tanstack/router-ssr-query-core': 1.169.1(patch_hash=c0e9047c00838360ca651b91c0bcbe28edc3db1d27823b55d977d84ca6fa4226)(@tanstack/query-core@5.102.4)(@tanstack/router-core@1.171.27)
       react: 19.2.8
       react-dom: 19.2.8(react@19.2.8)
     transitivePeerDependencies:
@@ -6648,7 +6651,7 @@ snapshots:
       - supports-color
       - unloader
 
-  '@tanstack/router-ssr-query-core@1.169.1(@tanstack/query-core@5.102.4)(@tanstack/router-core@1.171.27)':
+  '@tanstack/router-ssr-query-core@1.169.1(patch_hash=c0e9047c00838360ca651b91c0bcbe28edc3db1d27823b55d977d84ca6fa4226)(@tanstack/query-core@5.102.4)(@tanstack/router-core@1.171.27)':
     dependencies:
       '@tanstack/query-core': 5.102.4
       '@tanstack/router-core': 1.171.27
