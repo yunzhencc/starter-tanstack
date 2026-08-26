@@ -1,11 +1,14 @@
-import process from 'node:process';
-import { z } from 'zod';
+/* eslint-disable perfectionist/sort-imports */
 import '@tanstack/react-start/server-only';
+import process from 'node:process';
+import { createEnv } from '@t3-oss/env-core';
+import { z } from 'zod';
 
-const schema = z.object({
-  DATABASE_URL: z.url(),
-  BETTER_AUTH_SECRET: z.string().min(1),
-  VITE_BASE_URL: z.url().default('http://localhost:3000'),
+export const env = createEnv({
+  server: {
+    DATABASE_URL: z.url(),
+    VITE_BASE_URL: z.url().default('http://localhost:3000'),
+    BETTER_AUTH_SECRET: z.string().min(1),
+  },
+  runtimeEnv: process.env,
 });
-
-export const env = schema.parse(process.env);
