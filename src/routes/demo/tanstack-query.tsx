@@ -1,5 +1,5 @@
-import { createFileRoute } from '@tanstack/react-router'
 import { useQuery } from '@tanstack/react-query'
+import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/demo/tanstack-query')({
   component: TanStackQueryDemo,
@@ -25,7 +25,7 @@ function TanStackQueryDemo() {
           TanStack Query Simple Promise Handling
         </h1>
         <ul className="mb-4 space-y-2">
-          {data.map((todo) => (
+          {data.map(todo => (
             <li key={todo.id} className="demo-list-item">
               <span className="text-base font-medium">{todo.name}</span>
             </li>
