@@ -1,13 +1,21 @@
-Welcome to your new TanStack Start app!
+# Starter TanStack
 
 # Getting Started
 
-To run this application:
+Start the local PostgreSQL database, configure a development secret, then run the
+database migration:
 
 ```bash
-npm install
-npm run dev
+pnpm install
+cp .env.example .env
+# Set BETTER_AUTH_SECRET in .env with: openssl rand -hex 32
+docker compose up -d db
+pnpm db:migrate
+pnpm dev
 ```
+
+Run the browser authentication checks with `pnpm test:e2e`. They require the Docker
+database to be running and migrated.
 
 # Building For Production
 

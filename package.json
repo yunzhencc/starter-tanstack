@@ -11,7 +11,7 @@
     "generate-routes": "tsr generate",
     "build": "vite build",
     "preview": "vite preview",
-    "auth:generate": "pnpm dlx auth@latest generate --config ./src/lib/auth/auth.ts --output ./src/lib/db/schema/auth.schema.ts --yes",
+    "auth:generate": "pnpm dlx auth@latest generate --config ./src/lib/auth/auth.server.ts --output ./src/lib/db/schema/auth.schema.ts --yes",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "test": "vitest",

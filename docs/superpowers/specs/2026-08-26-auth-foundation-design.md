@@ -23,7 +23,7 @@ Protected server function / API route -> auth middleware -> Better Auth session
 
 `src/env/server.ts` owns server-only environment validation. `src/lib/db` owns the
 single PostgreSQL/Drizzle connection and schema. `src/lib/auth` owns the Better Auth
-configuration, client, current-user server function, query options, and middleware.
+configuration, client, current-user server function, and middleware.
 Neither database nor server auth modules may be imported by client components.
 
 ## Routes and session behavior
@@ -50,8 +50,8 @@ Neither database nor server auth modules may be imported by client components.
 
 - Unit tests cover the smallest pure auth/query behavior that can run without a
   database.
-- Playwright starts the built app through a new `start:e2e` script and verifies that a
-  logged-out visitor can reach the login page.
+- Playwright starts the Vite development server and verifies that a logged-out visitor
+  can reach the login page.
 - Validation runs targeted Vitest tests, the E2E smoke test when PostgreSQL is
   available, TypeScript checking, linting, and a production build.
 

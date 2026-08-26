@@ -4,6 +4,7 @@ import { tanstackStartCookies } from 'better-auth/tanstack-start';
 import { env } from '@/env/server';
 import { db } from '@/lib/db';
 import * as schema from '@/lib/db/schema';
+import '@tanstack/react-start/server-only';
 
 export const auth = betterAuth({
   baseURL: env.VITE_BASE_URL,
