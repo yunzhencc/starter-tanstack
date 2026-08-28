@@ -9,6 +9,8 @@
       "email": "Email",
       "password": "Password",
       "confirmPassword": "Confirm password",
+      "requiredField": "Enter your {{field}}.",
+      "invalidEmail": "Enter a valid email address.",
       "passwordMismatch": "The passwords do not match",
       "errorFallback": "Authentication failed. Please try again.",
       "submitPending": "Please wait…",

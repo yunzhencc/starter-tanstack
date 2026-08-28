@@ -9,6 +9,8 @@
       "email": "邮箱",
       "password": "密码",
       "confirmPassword": "确认密码",
+      "requiredField": "请填写{{field}}",
+      "invalidEmail": "请输入有效的邮箱地址",
       "passwordMismatch": "两次输入的密码不一致",
       "errorFallback": "认证失败，请重试",
       "submitPending": "请稍候…",
