@@ -15,6 +15,7 @@ trustPolicyExclude:
 
 allowBuilds:
   esbuild: true
+  node-pty: false
   simple-git-hooks: true
 
 catalogs:
@@ -82,6 +83,7 @@ catalogs:
   vite:
     '@tailwindcss/vite': 4.3.3
     '@vitejs/plugin-react': 6.1.1
+    code-inspector-plugin: 2.0.8
     vite: 8.2.2
 
 onlyBuiltDependencies:
