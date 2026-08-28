@@ -1,6 +1,8 @@
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { renderToString } from 'react-dom/server';
+import { I18nextProvider } from 'react-i18next';
 import { afterEach, describe, expect, it, vi } from 'vitest';
+import { createI18n } from '#/lib/i18n/provider';
 import { ThemeToggle } from './index';
 
 interface AppearanceTransition {
@@ -16,6 +18,7 @@ const theme = vi.hoisted(() => ({
   setTheme: vi.fn(),
 }));
 const documentWithViewTransition = document as unknown as DocumentWithViewTransition;
+const i18n = createI18n('zh-CN');
 
 vi.mock('next-themes', () => ({ useTheme: () => theme }));
 
@@ -33,11 +36,11 @@ describe('theme toggle', () => {
   it('defers theme-dependent markup during SSR', () => {
     theme.resolvedTheme = undefined;
 
-    expect(renderToString(<ThemeToggle />)).toBe('');
+    expect(renderToString(<I18nextProvider i18n={i18n}><ThemeToggle /></I18nextProvider>)).toBe('');
   });
 
   it('switches from dark to light through the theme control', () => {
-    render(<ThemeToggle />);
+    render(<I18nextProvider i18n={i18n}><ThemeToggle /></I18nextProvider>);
 
     fireEvent.click(screen.getByRole('button', { name: '切换至浅色主题' }));
 
@@ -46,7 +49,7 @@ describe('theme toggle', () => {
 
   it('switches from light to dark through the theme control', () => {
     theme.resolvedTheme = 'light';
-    render(<ThemeToggle />);
+    render(<I18nextProvider i18n={i18n}><ThemeToggle /></I18nextProvider>);
 
     fireEvent.click(screen.getByRole('button', { name: '切换至深色主题' }));
 
@@ -64,7 +67,7 @@ describe('theme toggle', () => {
     document.documentElement.classList.add('dark');
     vi.stubGlobal('matchMedia', vi.fn(() => ({ matches: false })));
 
-    render(<ThemeToggle />);
+    render(<I18nextProvider i18n={i18n}><ThemeToggle /></I18nextProvider>);
 
     fireEvent.click(screen.getByRole('button', { name: '切换至浅色主题' }), { clientX: 12, clientY: 24, detail: 1 });
 

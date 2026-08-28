@@ -4,7 +4,6 @@ import { useTheme } from 'next-themes';
 import { useSyncExternalStore } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '#/components/ui/button';
-import { i18n } from '#/lib/i18n/provider';
 
 interface AppearanceTransition {
   ready: Promise<void>;
@@ -13,7 +12,7 @@ interface AppearanceTransition {
 const subscribe = () => () => {};
 
 export function ThemeToggle() {
-  const { t } = useTranslation(undefined, { i18n });
+  const { t } = useTranslation();
   const { resolvedTheme, setTheme } = useTheme();
   const mounted = useSyncExternalStore(subscribe, () => true, () => false);
   const nextTheme = resolvedTheme === 'dark' ? 'light' : 'dark';

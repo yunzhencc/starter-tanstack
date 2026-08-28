@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { fallbackLocale, languageDetectionOptions, resolveLocale, resources } from './index';
+import { fallbackLocale, resolveLocale, resolveRequestLocale, resources } from './index';
 
 describe('resolveLocale', () => {
   it.each([
@@ -12,14 +12,6 @@ describe('resolveLocale', () => {
     expect(resolveLocale(input)).toBe(expected);
   });
 
-  it('checks the saved value before browser languages without caching detection', () => {
-    expect(languageDetectionOptions).toMatchObject({
-      order: ['localStorage', 'navigator'],
-      caches: [],
-      lookupLocalStorage: 'starter-tanstack:locale',
-    });
-  });
-
   it('contains English and Chinese text for every current page area', () => {
     for (const locale of ['zh-CN', 'en'] as const) {
       const translation = resources[locale].translation;
@@ -28,5 +20,15 @@ describe('resolveLocale', () => {
       expect(translation.theme.switchToLight).toBeTruthy();
       expect(translation.notFound.title).toBeTruthy();
     }
+  });
+});
+
+describe('resolveRequestLocale', () => {
+  it('prefers a supported locale cookie over Accept-Language', () => {
+    expect(resolveRequestLocale('en', 'zh-CN,zh;q=0.9')).toBe('en');
+  });
+
+  it('uses a supported Accept-Language value when there is no valid cookie', () => {
+    expect(resolveRequestLocale('fr-FR', 'fr-FR, en-GB;q=0.9, zh-CN;q=0.8')).toBe('en');
   });
 });

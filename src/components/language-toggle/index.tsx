@@ -1,9 +1,8 @@
 import { useTranslation } from 'react-i18next';
-import { localeStorageKey, resolveLocale } from '#/lib/i18n';
-import { i18n } from '#/lib/i18n/provider';
+import { localeCookieName, resolveLocale } from '#/lib/i18n';
 
 export function LanguageToggle() {
-  const { t } = useTranslation(undefined, { i18n });
+  const { i18n, t } = useTranslation();
 
   return (
     <select
@@ -12,12 +11,7 @@ export function LanguageToggle() {
       value={resolveLocale(i18n.resolvedLanguage)}
       onChange={(event) => {
         const locale = resolveLocale(event.target.value);
-        try {
-          window.localStorage.setItem(localeStorageKey, locale);
-        }
-        catch {
-          // Keep the in-memory selection when persistence is unavailable.
-        }
+        document.cookie = `${localeCookieName}=${locale}; Path=/; Max-Age=31536000; SameSite=Lax`;
         void i18n.changeLanguage(locale);
       }}
     >

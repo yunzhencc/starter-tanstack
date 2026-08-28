@@ -1,16 +1,16 @@
 import { cleanup, render, screen } from '@testing-library/react';
 import { I18nextProvider } from 'react-i18next';
 import { afterEach, describe, expect, it } from 'vitest';
-import { i18n } from '#/lib/i18n/provider';
+import { createI18n } from '#/lib/i18n/provider';
 import { Route } from './__root';
 
-afterEach(async () => {
+afterEach(() => {
   cleanup();
-  await i18n.changeLanguage('zh-CN');
 });
 
 describe('root 404 page', () => {
   it('shows English after the language changes', async () => {
+    const i18n = createI18n('zh-CN');
     const NotFoundComponent = Route.options.notFoundComponent;
     if (!NotFoundComponent)
       throw new Error('Root not found component is missing');
