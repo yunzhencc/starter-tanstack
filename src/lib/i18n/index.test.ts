@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { fallbackLocale, languageDetectionOptions, resolveLocale } from './index';
+import { fallbackLocale, languageDetectionOptions, resolveLocale, resources } from './index';
 
 describe('resolveLocale', () => {
   it.each([
@@ -18,5 +18,15 @@ describe('resolveLocale', () => {
       caches: [],
       lookupLocalStorage: 'starter-tanstack:locale',
     });
+  });
+
+  it('contains English and Chinese text for every current page area', () => {
+    for (const locale of ['zh-CN', 'en'] as const) {
+      const translation = resources[locale].translation;
+      expect(translation.auth.login.title).toBeTruthy();
+      expect(translation.app.welcome).toBeTruthy();
+      expect(translation.theme.switchToLight).toBeTruthy();
+      expect(translation.notFound.title).toBeTruthy();
+    }
   });
 });

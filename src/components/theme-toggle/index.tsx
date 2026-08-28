@@ -2,7 +2,9 @@ import type { MouseEvent } from 'react';
 import { Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { useSyncExternalStore } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '#/components/ui/button';
+import { i18n } from '#/lib/i18n/provider';
 
 interface AppearanceTransition {
   ready: Promise<void>;
@@ -11,10 +13,11 @@ interface AppearanceTransition {
 const subscribe = () => () => {};
 
 export function ThemeToggle() {
+  const { t } = useTranslation(undefined, { i18n });
   const { resolvedTheme, setTheme } = useTheme();
   const mounted = useSyncExternalStore(subscribe, () => true, () => false);
   const nextTheme = resolvedTheme === 'dark' ? 'light' : 'dark';
-  const label = nextTheme === 'light' ? '切换至浅色主题' : '切换至深色主题';
+  const label = t(nextTheme === 'light' ? 'theme.switchToLight' : 'theme.switchToDark');
 
   function setThemeWithTransition(event: MouseEvent<HTMLButtonElement>) {
     const update = () => {

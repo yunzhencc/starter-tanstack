@@ -4,6 +4,7 @@ import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools';
 import { ThemeProvider } from 'next-themes';
 import { LanguageToggle } from '#/components/language-toggle';
 import { BodyScrollbars } from '#/features/layout/body-scrollbars';
+import { resources } from '#/lib/i18n';
 import { AppI18nProvider } from '#/lib/i18n/provider';
 import appCss from '#/styles.css?url';
 
@@ -18,7 +19,7 @@ export const Route = createRootRoute({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'TanStack Start Starter',
+        title: resources['zh-CN'].translation.app.title,
       },
     ],
     links: [
@@ -27,7 +28,7 @@ export const Route = createRootRoute({
   }),
   notFoundComponent: () => (
     <main>
-      <h1>Page not found</h1>
+      <h1>{resources['zh-CN'].translation.notFound.title}</h1>
     </main>
   ),
   shellComponent: RootDocument,
