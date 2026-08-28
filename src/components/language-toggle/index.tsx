@@ -12,7 +12,12 @@ export function LanguageToggle() {
       value={resolveLocale(i18n.resolvedLanguage)}
       onChange={(event) => {
         const locale = resolveLocale(event.target.value);
-        window.localStorage.setItem(localeStorageKey, locale);
+        try {
+          window.localStorage.setItem(localeStorageKey, locale);
+        }
+        catch {
+          // Keep the in-memory selection when persistence is unavailable.
+        }
         void i18n.changeLanguage(locale);
       }}
     >

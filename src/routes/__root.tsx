@@ -2,6 +2,7 @@ import { TanStackDevtools } from '@tanstack/react-devtools';
 import { createRootRoute, HeadContent, Scripts } from '@tanstack/react-router';
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools';
 import { ThemeProvider } from 'next-themes';
+import { useTranslation } from 'react-i18next';
 import { LanguageToggle } from '#/components/language-toggle';
 import { BodyScrollbars } from '#/features/layout/body-scrollbars';
 import { resources } from '#/lib/i18n';
@@ -26,13 +27,19 @@ export const Route = createRootRoute({
       { rel: 'stylesheet', href: appCss },
     ],
   }),
-  notFoundComponent: () => (
-    <main>
-      <h1>{resources['zh-CN'].translation.notFound.title}</h1>
-    </main>
-  ),
+  notFoundComponent: RootNotFound,
   shellComponent: RootDocument,
 });
+
+// eslint-disable-next-line react-refresh/only-export-components
+function RootNotFound() {
+  const { t } = useTranslation();
+  return (
+    <main>
+      <h1>{t('notFound.title')}</h1>
+    </main>
+  );
+}
 
 // eslint-disable-next-line react-refresh/only-export-components
 function RootDocument({ children }: { children: React.ReactNode }) {

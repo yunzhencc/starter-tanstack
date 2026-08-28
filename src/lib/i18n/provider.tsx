@@ -26,7 +26,7 @@ export function AppI18nProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     void import('i18next-browser-languagedetector').then(({ default: LanguageDetector }) => {
-      const detector = new LanguageDetector(undefined, languageDetectionOptions);
+      const detector = new LanguageDetector(i18n.services, languageDetectionOptions);
       void i18n.changeLanguage(resolveLocale(detector.detect(languageDetectionOptions.order)));
     });
   }, []);
