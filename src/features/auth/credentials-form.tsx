@@ -30,7 +30,7 @@ export function CredentialsForm({ mode }: { mode: 'login' | 'signup' }) {
       : await authClient.signIn.email({ email, password });
     setPending(false);
     if (result.error)
-      return setError(result.error.message ?? t('auth.errorFallback'));
+      return setError(result.error.message || t('auth.errorFallback'));
     await navigate({ to: '/app' });
   }
 
