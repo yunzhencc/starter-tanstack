@@ -1,0 +1,24 @@
+{
+  "translation": {
+    "language": { "label": "Language" },
+    "app": { "title": "TanStack Start Starter", "welcome": "Welcome, {{name}}", "home": "Home" },
+    "auth": {
+      "login": { "title": "Welcome back", "description": "Enter your account details to continue." },
+      "signup": { "title": "Create an account", "description": "Enter your basic information to get started." },
+      "name": "Name",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm password",
+      "passwordMismatch": "The passwords do not match",
+      "errorFallback": "Authentication failed. Please try again.",
+      "submitPending": "Please wait…",
+      "loginAction": "Log in",
+      "signupAction": "Create account",
+      "existingAccount": "Already have an account?",
+      "noAccount": "Don't have an account?",
+      "signOut": "Sign out"
+    },
+    "theme": { "switchToLight": "Switch to light theme", "switchToDark": "Switch to dark theme" },
+    "notFound": { "title": "Page not found" }
+  }
+}
