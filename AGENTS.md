@@ -18,7 +18,6 @@
 - 服务端实现放在 `*.server.ts`，或使用 `@tanstack/react-start/server-only` 标记。不要让客户端组件导入 `auth.server.ts`、数据库模块或其他服务端实现。
 - 不要在同构 Loader 中使用相对路径 `fetch('/api/...')`；优先调用服务函数。
 - TanStack Query 负责服务端数据缓存与新鲜度，Router 负责参数、搜索参数校验、重定向和路由生命周期。不要把 Query 所有的数据复制进 Loader 数据或路由上下文。
-- SSR Query 的结束流 hydration 已由 `patches/@tanstack__router-ssr-query-core@1.169.1.patch` 修复；升级 `@tanstack/router-ssr-query-core` 前，先核验上游是否已包含等效修复，再更新或移除该补丁及 `patchedDependencies`。
 
 ## 认证与数据库
 
