@@ -1,8 +1,4 @@
 minimumReleaseAgeExclude:
-  - '@tanstack/query-core@5.102.4'
-  - '@tanstack/query-devtools@5.102.4'
-  - '@tanstack/react-query-devtools@5.102.4'
-  - '@tanstack/react-query@5.102.4'
 shellEmulator: true
 
 trustPolicy: no-downgrade
@@ -14,9 +10,6 @@ allowBuilds:
   esbuild: true
   simple-git-hooks: true
 
-patchedDependencies:
-  '@tanstack/router-ssr-query-core@1.169.1': patches/@tanstack__router-ssr-query-core@1.169.1.patch
-
 catalogs:
   core:
     '@base-ui/react': 1.7.0
@@ -25,7 +18,7 @@ catalogs:
     '@t3-oss/env-core': ^0.13.11
     '@tanstack/react-query': 5.102.4
     '@tanstack/react-router': 1.170.32
-    '@tanstack/react-router-ssr-query': 1.167.1
+    '@tanstack/react-router-ssr-query': 1.167.2
     '@tanstack/react-start': 1.168.49
     better-auth: ^1.7.1
     class-variance-authority: 0.7.1
