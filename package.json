@@ -35,6 +35,7 @@
     "clsx": "catalog:core",
     "drizzle-orm": "catalog:core",
     "i18next": "catalog:core",
+    "i18next-browser-languagedetector": "catalog:core",
     "lucide-react": "catalog:core",
     "next-themes": "catalog:core",
     "overlayscrollbars": "catalog:core",
