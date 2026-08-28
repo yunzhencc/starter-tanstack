@@ -9,15 +9,29 @@ import '@tanstack/react-start/server-only';
 export const auth = betterAuth({
   baseURL: env.VITE_BASE_URL,
   secret: env.BETTER_AUTH_SECRET,
-  database: drizzleAdapter(db, { provider: 'pg', schema }),
-  emailAndPassword: {
-    enabled: true,
-  },
+  database: drizzleAdapter(db, {
+    provider: 'pg',
+    schema,
+  }),
+
+  plugins: [
+    tanstackStartCookies(),
+  ],
+
   session: {
     cookieCache: {
       enabled: true,
       maxAge: 5 * 60,
     },
   },
-  plugins: [tanstackStartCookies()],
+
+  emailAndPassword: {
+    enabled: true,
+  },
+
+  advanced: {
+    database: {
+      joins: true,
+    },
+  },
 });
