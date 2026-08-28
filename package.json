@@ -26,6 +26,7 @@
     "@better-auth/drizzle-adapter": "catalog:core",
     "@fontsource-variable/geist": "catalog:core",
     "@t3-oss/env-core": "catalog:core",
+    "@tanstack/react-form": "catalog:core",
     "@tanstack/react-query": "catalog:core",
     "@tanstack/react-router": "catalog:core",
     "@tanstack/react-router-ssr-query": "catalog:core",
